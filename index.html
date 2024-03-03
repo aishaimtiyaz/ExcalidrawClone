@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excalidraw Clone</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+</head>
+<body>
+    <div id="root">
+        <div id="top">
+            <div id="topLeft" class="lightbghover"><button id="topLeftBtn" class="material-symbols-outlined lightbghover">menu</button></div>
+            <div id="topCenter">
+                <div><button class="material-symbols-outlined option">lock</button> <span class="tooltiptext">keep selected tool active after drawing</span></div>
+                <div id="Topverticle"> </div>
+                <div><button class="material-symbols-outlined option">back_hand</button></div>
+                <div><button class="material-symbols-outlined option">web_traffic</button> <sub>1</sub></div>
+                <div><button class="material-symbols-outlined option">rectangle</button> <sub>2</sub></div>
+                <div><button class="material-symbols-outlined option">stat_0</button> <sub>3</sub></div>
+                <div><button class="material-symbols-outlined option">circle</button> <sub>4</sub></div>
+                <div><button class="material-symbols-outlined option">arrow_forward</button> <sub>5</sub></div>
+                <div><button class="material-symbols-outlined option">horizontal_rule</button> <sub>6</sub></div>
+                <div><button class="material-symbols-outlined option">text_format</button> <sub>7</sub></div>
+                <div><button class="material-symbols-outlined option">edit</button> <sub>8</sub></div>
+                <div><button class="material-symbols-outlined option">image</button> <sub>9</sub></div>
+                <div><button class="material-symbols-outlined option">ink_eraser</button> <sub>0</sub></div>
+                <div id="Topverticle"> </div>
+                <div><button class="material-symbols-outlined option">category</button> </div>
+                
+                
+            </div>
+            <div id="topRight">
+                <button  id="shareButton">Share</button>
+                <button id="LibraryButton"> <span class="material-symbols-outlined">import_contacts</span> <span>Library</span></button>
+            </div>
+        </div>
+        <canvas id="canvas"></canvas>
+        <div id="bottom">
+            <div id="bottomleft">
+                <div class="zoom">
+                    <button id="plus" class="material-symbols-outlined lightbghover">Add</button>
+                    <button id="resetZoom"> 100% </button>
+                    <button id="minus" class="material-symbols-outlined lightbghover">remove</button>
+                </div>
+    
+                <div class="undoredo">
+                    <button id="undo" class="material-symbols-outlined lightbghover">undo</button>
+                    <button id="redo" class="material-symbols-outlined lightbghover">redo</button>
+                </div>
+            </div>
+            <div id="bottomright">
+                <button id="" class="material-symbols-outlined lightbghover">encrypted</button>
+                <button id="" class="material-symbols-outlined lightbghover">help</button>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
