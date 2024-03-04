@@ -24,9 +24,9 @@ body { min-height: 100vh;
 
 #canvas{
     width: 100%;    
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     position: relative;
-    z-index: -1;
+    /* z-index: -1; */
 }
 #top{
     width: 99vw;
@@ -62,15 +62,24 @@ body { min-height: 100vh;
     align-items: center;
     justify-content:space-evenly;
     overflow-x: scroll;
+    box-shadow: 3px 2px 2px #e1e1e1;
+    border-radius: 10px;    
   }
-  #topCenter>div{
-    /* margin-left: 0.16rem; */
+  #colorPicker{
+    width: 25px !important;
+    margin-right: 3px;
+    border: none;
   }
+
 Button,.option{
     cursor: pointer;
     padding: 1px;
 }
-
+.active {
+    background-color: #3a34eb;
+    border-radius: 4px;
+    color: white;
+}
   #topCenter::-webkit-scrollbar{
     display: none;
   }
@@ -94,19 +103,21 @@ Button,.option{
     justify-content: space-between;
     
   }
-
+.material-symbols-outlined{
+    font-size: 20px !important;
+}
 
 #topRight>button{
     height: 1.90rem;
     padding: 0.16rem;
     border-radius: 5px;
 }
-#shareButton{
+#share{
     width: 68px;
     background-color: rgb(50, 50, 238);
     color: #f2f2f2;
   }
-#LibraryButton{
+#library{
     background-color:#e4e1e1;
     width: 85px;
 }
@@ -114,27 +125,14 @@ Button,.option{
     background-color: #eeeded;
     
 }
-.tooltiptext {
-    visibility: hidden;
-    width: fit-content;
+.tooltip {
     background-color: white;
     text-align: center;
-    margin: 22px 0;
-    padding: 2px;
+    padding: 4px;
    border: 0.5px solid black;
    font-size: small;
-   /* text-size-adjust: ; */
-    /* Position the tooltip text - see examples below! */
     position: absolute;
-    z-index: 1;
-  }
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .option:hover{
-        background-color: rgb(212, 212, 242);
-        border-radius: 5px;
-  }
-.option:hover .tooltiptext {
-    visibility: visible;
+
   }
   #bottom{
     width: 120px;
@@ -142,9 +140,8 @@ Button,.option{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* bottom: 0px; */
-    /* right: 0px; */
   }
+
   #bottomleft{
     width: 190px;
     position: fixed;

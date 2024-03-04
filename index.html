@@ -13,27 +13,28 @@
         <div id="top">
             <div id="topLeft" class="lightbghover"><button id="topLeftBtn" class="material-symbols-outlined lightbghover">menu</button></div>
             <div id="topCenter">
-                <div><button class="material-symbols-outlined option">lock</button> <span class="tooltiptext">keep selected tool active after drawing</span></div>
+                <div class="option"><button id="lock" class=" material-symbols-outlined" >lock</button></div>
+                <div id="Topverticle"></div>
+                <div><button class="material-symbols-outlined option" id="hand">back_hand</button></div>
+                <div><button class="material-symbols-outlined option" id="arrow">web_traffic</button> <sub>1</sub></div>
+                <div><button class="material-symbols-outlined option" id="rectangle">rectangle</button> <sub>2</sub></div>
+                <div><button class="material-symbols-outlined option" id="diamond">stat_0</button> <sub>3</sub></div>
+                <div><button class="material-symbols-outlined option" id="circle">circle</button> <sub>4</sub></div>
+                <div><button class="material-symbols-outlined option" id="forwardArrow">arrow_forward</button> <sub>5</sub></div>
+                <div><button class="material-symbols-outlined option" id="line">horizontal_rule</button> <sub>6</sub></div>
+                <div><button class="material-symbols-outlined option" id="text">text_format</button> <sub>7</sub></div>
+                <div><button class="material-symbols-outlined option" id="pencil">edit</button> <sub>8</sub></div>
+                <input type="color" id="colorPicker" class="option">
+                <div><button class="material-symbols-outlined option" id="image">image</button> <sub>9</sub></div>
+                <div><button class="material-symbols-outlined option" id="eraser">ink_eraser</button> <sub>0</sub></div>
                 <div id="Topverticle"> </div>
-                <div><button class="material-symbols-outlined option">back_hand</button></div>
-                <div><button class="material-symbols-outlined option">web_traffic</button> <sub>1</sub></div>
-                <div><button class="material-symbols-outlined option">rectangle</button> <sub>2</sub></div>
-                <div><button class="material-symbols-outlined option">stat_0</button> <sub>3</sub></div>
-                <div><button class="material-symbols-outlined option">circle</button> <sub>4</sub></div>
-                <div><button class="material-symbols-outlined option">arrow_forward</button> <sub>5</sub></div>
-                <div><button class="material-symbols-outlined option">horizontal_rule</button> <sub>6</sub></div>
-                <div><button class="material-symbols-outlined option">text_format</button> <sub>7</sub></div>
-                <div><button class="material-symbols-outlined option">edit</button> <sub>8</sub></div>
-                <div><button class="material-symbols-outlined option">image</button> <sub>9</sub></div>
-                <div><button class="material-symbols-outlined option">ink_eraser</button> <sub>0</sub></div>
-                <div id="Topverticle"> </div>
-                <div><button class="material-symbols-outlined option">category</button> </div>
+                <div><button class="material-symbols-outlined option" id="tools">category</button> </div>
                 
                 
             </div>
             <div id="topRight">
-                <button  id="shareButton">Share</button>
-                <button id="LibraryButton"> <span class="material-symbols-outlined">import_contacts</span> <span>Library</span></button>
+                <button  id="share" class="option">Share</button>
+                <button id="library" class="option"> <span class=" material-symbols-outlined">import_contacts</span> <span>Library</span></button>
             </div>
         </div>
         <canvas id="canvas"></canvas>
@@ -41,7 +42,7 @@
             <div id="bottomleft">
                 <div class="zoom">
                     <button id="plus" class="material-symbols-outlined lightbghover">Add</button>
-                    <button id="resetZoom"> 100% </button>
+                    <button id="resetZoom" class="option"> 100% </button>
                     <button id="minus" class="material-symbols-outlined lightbghover">remove</button>
                 </div>
     
@@ -51,11 +52,14 @@
                 </div>
             </div>
             <div id="bottomright">
-                <button id="" class="material-symbols-outlined lightbghover">encrypted</button>
-                <button id="" class="material-symbols-outlined lightbghover">help</button>
+                <button id="security" class="material-symbols-outlined lightbghover">encrypted</button>
+                <button id="help" class="material-symbols-outlined lightbghover">help</button>
             </div>
         </div>
     </div>
+    <script src="./freehand.js"></script>
+    <script src="./tooltip.js"></script>
     <script src="./index.js"></script>
+    
 </body>
 </html>
