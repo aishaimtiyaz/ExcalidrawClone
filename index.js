@@ -1,13 +1,16 @@
 const canvas = document.getElementById("canvas");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 const c = canvas.getContext("2d");
 
+
+
 //canvas
-canvas.addEventListener("mousedown",onMouseDown);
 let drawingColor = "black";
 let prevPosition = null;
 
  function onMouseDown(e)
- {
+ { console.log("mouseDown");
    prevPosition= [e.clientX,e.clientY];
    c.strokeStyle = drawingColor;
    c.lineWidth=2;
@@ -17,8 +20,9 @@ let prevPosition = null;
 
  function onMouseMove(e)
  {
+    console.log("mouse move");
     let currPosition = [e.clientX,e.clientY];
-    c.beginpath();
+    c.beginPath();
     c.moveTo(...prevPosition);
     c.lineTo(...currPosition);
     c.stroke();
@@ -28,5 +32,6 @@ let prevPosition = null;
 
  function onMouseUp(e)
  {
+    console.log("mouse up");
     canvas.removeEventListener("mousemove",onMouseMove);
  }

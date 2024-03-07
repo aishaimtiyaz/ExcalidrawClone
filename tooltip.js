@@ -15,6 +15,8 @@ const tooltiptext = {
     tools: "More tools",
     share: "Live collaboration",
     library: "Library",
+    zoomIn:"Zoom in",
+    zoomOut:"Zoom out",
     resetZoom: "Reset Zoom",
     undo: "Undo",
     redo: "Redo",
@@ -22,28 +24,39 @@ const tooltiptext = {
     help: "Help?",
 };
 const tooltipButtons = document.querySelectorAll(".option");
-// console.log(tooltipButtons);
-tooltipButtons.forEach(button => {
-    button.addEventListener("mouseover", displayTooltip);
-    button.addEventListener("mouseout", hideTooltip);
-});
 
 const tooltipElement = document.createElement("span");
 tooltipElement.className = "tooltip";
 
+console.log(tooltipButtons);
+
+tooltipButtons.forEach(button => {
+    button.addEventListener("mouseover", displayTooltip);
+    button.addEventListener("mouseout", hideTooltip);
+    console.log(button);
+});
+
 function displayTooltip(event) {
+    console.log("displayTooltip trigerred for "+event.target);
     const buttonText = event.target.id;
     const tooltipText = tooltiptext[buttonText];
 
     tooltipElement.innerText = tooltipText;
 
     // Position the tooltip below the button
-    tooltipElement.style.top = event.target.offsetTop + event.target.offsetHeight +10+ "px";
+    const isBottomLeft = event.target.closest("#bottomLeft"); // Check if the target is within #bottomLeft
+    const isBottomRight = event.target.closest("#bottomRight"); // Check if the target is within #bottomRight
+    if (isBottomLeft || isBottomRight) {
+        tooltipElement.style.top = event.target.offsetTop + tooltipElement.offsetHeight +590 + "px";
+    } else {
+        tooltipElement.style.top = event.target.offsetTop + event.target.offsetHeight + 23 + "px";
+    }
     tooltipElement.style.left = event.target.offsetLeft + "px";
 
     document.body.appendChild(tooltipElement);
 }
 
 function hideTooltip() {
+    console.log("hideTooltip trigerred for ");
     document.body.removeChild(tooltipElement);
 }
