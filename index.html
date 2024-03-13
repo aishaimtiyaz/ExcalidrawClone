@@ -13,11 +13,11 @@
         <div id="top">
 
             <div id="topLeft" class="lightbghover">
-                <button id="topLeftBtn" class="material-symbols-outlined lightbghover">menu</button>
+                <button id="topLeftBtn" class="material-symbols-outlined lightbghover" onclick="toggleMenu()" >menu</button>
             </div>
             <div id="topCenter">
                 <div>
-                    <button id="lock" class=" material-symbols-outlined option" >lock</button>
+                    <button id="lock" class=" material-symbols-outlined option">lock</button>
                 </div>
                 <div id="Topverticle"></div>
                 <input type="color" id="colorPicker" class="option">
@@ -26,10 +26,10 @@
                 <div><button class="material-symbols-outlined option" id="rectangle">rectangle</button> <sub>2</sub></div>
                 <div><button class="material-symbols-outlined option" id="diamond">stat_0</button> <sub>3</sub></div>
                 <div><button class="material-symbols-outlined option" id="circle">circle</button> <sub>4</sub></div>
-                <div><button class="material-symbols-outlined option" id="forwardArrow">arrow_forward</button> <sub>5</sub></div>
+                <div><button class="material-symbols-outlined option" id="arrow">arrow_forward</button> <sub>5</sub></div>
                 <div><button class="material-symbols-outlined option" id="line">horizontal_rule</button> <sub>6</sub></div>
-                <div><button class="material-symbols-outlined option" id="text">text_format</button> <sub>7</sub></div>
-                <div><button class="material-symbols-outlined option" id="pencil">edit</button> <sub>8</sub></div>
+                <div><button class="material-symbols-outlined option" id="freehand">edit</button> <sub>7</sub></div>
+                <div><button class="material-symbols-outlined option" id="text">text_format</button> <sub>8</sub></div>
                 <div><button class="material-symbols-outlined option" id="image">image</button> <sub>9</sub></div>
                 <div><button class="material-symbols-outlined option" id="eraser">ink_eraser</button> <sub>0</sub></div>
                 <div id="Topverticle"> </div>
@@ -62,9 +62,29 @@
             </div>
         </div>
     </div>
-    <script src="./freehand.js"></script>
+    <div class="form hide">
+        <label for="strokewidth">Stroke Width</label>
+        <input
+          type="range"
+          id="strokewidth"
+          name="strokewidth"
+          min="3"
+          max="10"
+          oninput="onInput(this)"
+        />
+        <label for="strokestyle">Stroke Color</label>
+        <input
+          type="color"
+          name="strokestyle"
+          id="strokestyle"
+          oninput="onInput(this)"
+        />
+      </div>
+    <script src="./states.js"></script>
+    <script src="./drawing.js"></script>
+    <!-- <script src="./freehand.js"></script> -->
     <script src="./tooltip.js" ></script>
-    <script src="./index.js"></script>
+    <!-- <script src="./index.js"></script> -->
     
 </body>
 </html>

@@ -7,7 +7,7 @@ const tooltiptext = {
     circle: "Ellipse",
     forwardArrow: "Arrow",
     line: "Line",
-    pencil: "Draw",
+    freehand: "Draw",
     colorPicker:"ink Color",
     text: "Text",
     image: "Insert image",
@@ -28,16 +28,16 @@ const tooltipButtons = document.querySelectorAll(".option");
 const tooltipElement = document.createElement("span");
 tooltipElement.className = "tooltip";
 
-console.log(tooltipButtons);
+// console.log(tooltipButtons);
 
 tooltipButtons.forEach(button => {
     button.addEventListener("mouseover", displayTooltip);
     button.addEventListener("mouseout", hideTooltip);
-    console.log(button);
+    // console.log(button);
 });
 
 function displayTooltip(event) {
-    console.log("displayTooltip trigerred for "+event.target);
+    // console.log("displayTooltip trigerred for "+event.target);
     const buttonText = event.target.id;
     const tooltipText = tooltiptext[buttonText];
 
@@ -57,6 +57,6 @@ function displayTooltip(event) {
 }
 
 function hideTooltip() {
-    console.log("hideTooltip trigerred for ");
+    // console.log("hideTooltip trigerred for ");
     document.body.removeChild(tooltipElement);
 }
