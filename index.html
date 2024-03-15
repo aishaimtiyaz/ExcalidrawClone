@@ -62,29 +62,47 @@
             </div>
         </div>
     </div>
+
     <div class="form hide">
+        <label for="strokestyle">Stroke</label>
+        <div id="strokestyle">
+          <button onclick="onInput(this); onClick(this)"id="black" style="background-color: black;" name="strokestyle" value="black"></button>
+          <button onclick="onInput(this); onClick(this)" id="red" style="background-color: #e03131;"name="strokestyle" value="#e03131"></button>
+          <button onclick="onInput(this); onClick(this)" id="green" style="background-color: #2f9e44;"name="strokestyle" value="#2f9e44"></button>
+          <button onclick="onInput(this); onClick(this)" id="blue" style="background-color: #1971c2;"name="strokestyle" value="#1971c2"></button>
+          <button onclick="onInput(this);onClick(this)" id="yellow" style="background-color: #f08c00;"name="strokestyle" value="#f08c00"></button>
+        </div>
+       
         <label for="strokewidth">Stroke Width</label>
-        <input
-          type="range"
-          id="strokewidth"
-          name="strokewidth"
-          min="3"
-          max="10"
-          oninput="onInput(this)"
-        />
-        <label for="strokestyle">Stroke Color</label>
-        <input
-          type="color"
-          name="strokestyle"
-          id="strokestyle"
-          oninput="onInput(this)"
-        />
-      </div>
+        <div id="strokewidth">
+            <button name="strokewidth" id="small" style="font-weight: 600;" value="2"onclick="onInput(this); onClick(this)">-</button>
+            <button name="strokewidth" id="medium" style="font-weight: 800;" value="3"onclick="onInput(this);onClick(this)">-</button>
+            <button name="strokewidth" id="large" style="font-weight:900;" value="5"onclick="onInput(this);onClick(this)">-</button>
+        </div>
+
+        <label for="fillbackground">Background</label>
+       <div id="fillbackground">
+        <button onclick="onInput(this);onClick(this)" id="white" style="background-color: rgb(238, 246, 246);" name="fillbackground" value="transparent"></button>
+        <button onclick="onInput(this);onClick(this)" id="pink" style="background-color: #ffc9c9;"name="fillbackground" value="#ffc9c9"></button>
+        <button onclick="onInput(this);onClick(this)" id="Lgreen" style="background-color: #b2fbb2;"name="fillbackground" value="#b2fbb2"></button>
+        <button onclick="onInput(this);onClick(this)" id="sky" style="background-color: #a5d8ff;"name="fillbackground" value="#a5d8ff"></button>
+        <button onclick="onInput(this);onClick(this)" id="Lyellow" style="background-color: #ffec99;"name="fillbackground" value="#ffec99"></button>
+       </div>
+       <label for="fill">Fill</label>
+       <div id="fill">
+        <button class="material-symbols-outlined" name="fill" id="hollow" value="hollow" onclick="onInput(this);onClick(this)">rectangle</button>
+        <button class="material-symbols-outlined" name="fill" id="filled" value="fill" onclick="onInput(this);onClick(this)">capture</button>
+       </div>
+       <label for="edge">Edges</label>
+       <div id="edge">
+        <button class="material-symbols-outlined" name="edgeRound" id="square" value="sharp" onclick="onInput(this);onClick(this)">rectangle</button>
+        <button class="material-symbols-outlined" name="edgeRound" id="round"  value="round" onclick="onInput(this);onClick(this)">crop_5_4</button>
+       </div>
+    </div>
     <script src="./states.js"></script>
     <script src="./drawing.js"></script>
-    <!-- <script src="./freehand.js"></script> -->
+    <script src="./MenuFunc.js"></script>
     <script src="./tooltip.js" ></script>
-    <!-- <script src="./index.js"></script> -->
     
 </body>
 </html>

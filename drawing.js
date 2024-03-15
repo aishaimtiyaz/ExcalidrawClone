@@ -5,7 +5,7 @@ let historyIndex = -1;
     function onMouseDown(e)
     { 
         console.log("mouseDown");
-        if (!(actions.circle || actions.rectangle || actions.eraser || actions.freehand || actions.line)) 
+        if (!(actions.circle || actions.rectangle || actions.eraser || actions.freehand || actions.line || actions.arrow || actions.diamond)) 
         {
             return;
         }
@@ -14,6 +14,7 @@ let historyIndex = -1;
         startIndex = history.length - 1;
         c.strokeStyle = formState.strokestyle;
         c.lineWidth = formState.strokewidth;
+        c.fillStyle = formState.fillbackground;
         console.log(intialPosition,c.strokeStyle,c.lineWidth );
         canvas.addEventListener("mousemove",onMouseMove);
         canvas.addEventListener("mouseup",onMouseUp);
@@ -46,6 +47,16 @@ let historyIndex = -1;
         {
             resetToOriginalImage();
             drawLine(currentPosition);
+        }
+        else if(actions.arrow)
+        {
+            resetToOriginalImage();
+            drawArrow(currentPosition);
+        }
+        else if(actions.diamond)
+        {
+            resetToOriginalImage();
+            drawDimond(currentPosition);
         }
     }
 
@@ -107,16 +118,73 @@ let historyIndex = -1;
     
         function drawRectangle(currentPosition)
         {console.log("inside drawRectangle");
-        console.log(currentPosition,intialPosition)
+        console.log(currentPosition,intialPosition);
             c.beginPath();
             // draw rectangle
             c.lineCap = "round";
             c.lineJoin = "round";
             let width = currentPosition[0] - intialPosition[0];
             let height = currentPosition[1] - intialPosition[1];
-            c.strokeRect(intialPosition[0], intialPosition[1], width, height);
+         if(formState.edgeRound === "round")
+           {
+            c.roundRect(intialPosition[0], intialPosition[1], width, height,[20]);
+           }
+         else 
+         {
+            c.rect(intialPosition[0], intialPosition[1], width, height);
+         }
+         if(formState.fill === "fill")
+         {
+            c.fill();
+         }
+          
+            c.stroke();
+        }
+        function drawDimond(currentPosition)
+        {
+            console.log("inside drawdimond");
+            c.beginPath();
+            // draw rectangle
+             
+            c.lineCap = "round";
+            c.lineJoin = "round";
+            let width = currentPosition[0] - intialPosition[0];
+            let height = currentPosition[1] - intialPosition[1];
+            c.roundRect(intialPosition[0], intialPosition[1], width, width,[15]);
+            // c.rotate((45 *( Math.PI / 180)));
+            c.stroke();
         }
     
+        function drawLine(currentPosition)
+            {console.log("inside drawLine");
+                c.beginPath();
+                c.lineCap = "round";
+                c.lineJoin = "round";
+                c.moveTo(intialPosition[0], intialPosition[1]);
+                c.lineTo(currentPosition[0], currentPosition[1]);
+                c.stroke();
+            }
+
+        function drawArrow(currentPosition) 
+        {
+            console.log("inside arrowDraw");
+                let fromx = intialPosition[0];
+                let fromy = intialPosition[1];
+                let tox = currentPosition[0];
+                let toy = currentPosition[1];
+                console.log(fromx,fromy,tox,toy);
+                var headlen = 10; // length of head in pixels
+                var dx = tox - fromx;
+                var dy = toy - fromy;
+                var angle = Math.atan2(dy, dx);
+                c.beginPath();
+                c.moveTo(fromx, fromy);
+                c.lineTo(tox, toy);
+                c.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+                c.moveTo(tox, toy);
+                c.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+                c.stroke();
+        }
         function drawLine(currentPosition)
             {console.log("inside drawLine");
                 c.beginPath();

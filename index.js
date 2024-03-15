@@ -35,3 +35,4 @@ let prevPosition = null;
     console.log("mouse up");
     canvas.removeEventListener("mousemove",onMouseMove);
  }
+ 

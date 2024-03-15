@@ -5,13 +5,6 @@ const c = canvas.getContext("2d");
 const actionButtons = document.querySelectorAll("#topCenter > div > .option");
 const form = document.querySelector(".form");
 
-// console.log("action buttons");
-// console.log(actionButtons);
-const formState = {
-    strokewidth: 2,
-    strokestyle: "black"
-}
-
 const actions = {
     freehand: false,
     hand: false,
@@ -31,17 +24,6 @@ actionButtons.forEach(button => {
 function toggleMenu() {
     form.classList.toggle("hide");
 }
-
-function onInput(element) {
-    const newValue = element.value;
-    if (element.name === "strokewidth")
-        formState[element.name] = parseInt(newValue);
-    else
-        formState[element.name] = newValue;
-
-    console.log(formState);
-}
-
 
 function onActionClick(event) {
     const element = event.target;
