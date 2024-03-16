@@ -140,20 +140,31 @@ let historyIndex = -1;
           
             c.stroke();
         }
-        function drawDimond(currentPosition)
-        {
+        function drawDimond(currentPosition) {
             console.log("inside drawdimond");
             c.beginPath();
-            // draw rectangle
-             
-            c.lineCap = "round";
-            c.lineJoin = "round";
-            let width = currentPosition[0] - intialPosition[0];
-            let height = currentPosition[1] - intialPosition[1];
-            c.roundRect(intialPosition[0], intialPosition[1], width, width,[15]);
-            // c.rotate((45 *( Math.PI / 180)));
+            // Calculate the center point between initial and current position
+            let centerX = (currentPosition[0] + intialPosition[0]) / 2;
+            let centerY = (currentPosition[1] + intialPosition[1]) / 2;
+        
+            // Calculate half of the width and height
+            let halfWidth = Math.abs(currentPosition[0] - intialPosition[0]) / 2;
+            let halfHeight = Math.abs(currentPosition[1] - intialPosition[1]) / 2;
+        
+            // Draw the diamond shape
+            c.moveTo(centerX, intialPosition[1]); // Top point
+            c.lineTo(currentPosition[0], centerY); // Right point
+            c.lineTo(centerX, currentPosition[1]); // Bottom point
+            c.lineTo(intialPosition[0], centerY); // Left point
+            c.closePath(); // Close the path
+        
+            // Draw stroke and fill the diamond based on the form state
+            if (formState.fill === "fill") {
+                c.fill();
+            }
             c.stroke();
         }
+        
     
         function drawLine(currentPosition)
             {console.log("inside drawLine");
@@ -185,14 +196,5 @@ let historyIndex = -1;
                 c.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
                 c.stroke();
         }
-        function drawLine(currentPosition)
-            {console.log("inside drawLine");
-                c.beginPath();
-                c.lineCap = "round";
-                c.lineJoin = "round";
-                c.moveTo(intialPosition[0], intialPosition[1]);
-                c.lineTo(currentPosition[0], currentPosition[1]);
-                c.stroke();
-            }
 canvas.addEventListener("mousedown", onMouseDown);
  

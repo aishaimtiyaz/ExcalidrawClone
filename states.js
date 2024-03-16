@@ -4,7 +4,8 @@ canvas.height = window.innerHeight;
 const c = canvas.getContext("2d");
 const actionButtons = document.querySelectorAll("#topCenter > div > .option");
 const form = document.querySelector(".form");
-
+const dropdownContent = document.querySelector(".dropdown-content");
+const edgeDiv = document.querySelector(".edgeDiv");
 const actions = {
     freehand: false,
     hand: false,
@@ -22,18 +23,32 @@ actionButtons.forEach(button => {
 });
 
 function toggleMenu() {
-    form.classList.toggle("hide");
+    dropdownContent.classList.toggle("dchide");
 }
+// function toggleEdge() {
+//     console.log("inside toggleEdge");
+
+//     edgeDiv.classList.toggle("edgeHide");
+// }
 
 function onActionClick(event) {
     const element = event.target;
     const actionName = element.id;
+    form.style.visibility="visible";
+
+    // Set visibility of edgeDiv based on the actionName
+    if (actionName === "rectangle") {
+        edgeDiv.style.visibility = "visible";
+    } else {
+        edgeDiv.style.visibility = "hidden";
+    }
     console.log(actionName);
     actionButtons.forEach(btn => {
         // for the remaining three options if active class present remove that clas.
         if (btn.classList.contains("active") && btn.id !== actionName) {
             btn.classList.remove("active");
         }
+        
     })
     if(actionName=="freehand" || actionName=="rectangle" || actionName=="circle" || actionName=="diamond" || actionName=="line" )
     {
@@ -44,6 +59,7 @@ function onActionClick(event) {
         canvas.style.cursor="grab";
     }
     element.classList.toggle("active");
+    
    
     actionButtons.forEach(btn => {
         const isActive = btn.classList.contains("active")

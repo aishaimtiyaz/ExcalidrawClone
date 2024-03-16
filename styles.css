@@ -39,9 +39,11 @@
 #topLeft>div{
     cursor: pointer;
     background-color: #fff;
+    
 }
 #topLeftBtn{
-    padding: 4px;
+    padding: 5px;
+    border-radius: 5px;
 }
 #topLeft{
     border-radius: 5px;
@@ -54,7 +56,60 @@
     background-color: transparent;
     border: none;
   }
-
+.dchide{
+  display: none;
+}
+   /* Dropdown Content (Hidden by Default) */
+   .dropdown-content {
+    /* display: none !important; */
+    position: absolute !important;
+    background-color: white !important;
+    min-width: 200px !important;
+    box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.2) !important;
+    z-index: 1 !important;
+    left: 15px;
+    top: 20vh;
+  }
+  .dropdown-content>select, .canvasBackground, .color-picker>button{
+    margin-left: 10px;
+  }
+  /* .canvasBackground{
+    margin-left: 10px;
+  } */
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black ;
+    padding: 5px 10px ;
+    font-size: small ;
+    text-decoration: none ;
+    display: block ;
+  }
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: white !important;}
+  /* Show the dropdown menu on hover */
+  /* #topLeftBtn:hover .dropdown-content {
+    display: block !important;
+  
+  } */
+  .color-picker>button>div{
+     width:18px !important;
+     height:18px !important;
+     margin-left:2px !important;
+     border:1px solid lightgray !important;
+     border-radius: 3px !important;
+    box-sizing: border-box !important;
+  }
+  .color-pick{
+    width: 18px; height: 18px !important;
+    margin: 2px !important;
+    pad: 2px !important;
+  }
+  .color-picker>button{
+    border: none !important;
+    background-color: white !important;
+  
+  }
   #topCenter{
     display: flex;
     align-items: center;
@@ -67,11 +122,6 @@
     background-color: #fff;  
   }
 
-  #colorPicker{
-    width: 25px !important;
-    margin-right: 3px;
-    border: none;
-  }
 
 Button,.option{
     cursor: pointer;
@@ -131,8 +181,8 @@ Button,.option{
     background-color: white;
     text-align: center;
     padding: 4px;
-   border: 0.5px solid black;
-   font-size: small;
+    border: 0.5px solid black;
+    font-size: small;
     position: absolute;
 
   }
@@ -150,10 +200,11 @@ Button,.option{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-left: 0.50rem;
+    margin-left: 1.80rem;
     bottom: 0px;
   
   }
+
   #bottomright{
     position: fixed;
     bottom: 0px;
@@ -174,11 +225,7 @@ Button,.option{
     border-radius: 5px;
     padding: 4px;
   }
-  .active {
-    background-color: #3a34eb;
-    border-radius: 4px;
-    color: white;
-}
+
 .form {
   position: fixed;
   left: 10px;
@@ -189,11 +236,12 @@ Button,.option{
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  visibility: hidden;
+
 }
 
-
-.hide {
-  display: none;
+.edgeDiv{
+  visibility: hidden;
 }
 
 #strokewidth>button{
